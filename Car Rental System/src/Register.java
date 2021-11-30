@@ -21,8 +21,8 @@ public class Register extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Car Registration form");
-      /*  f.getContentPane().setLayout(null);*/
-       /* l7 = new JLabel(new ImageIcon(""))*/
+        /*  f.getContentPane().setLayout(null);*/
+        /* l7 = new JLabel(new ImageIcon(""))*/
 
        /* f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setPreferredSize(new Dimension(550,300));*/
@@ -31,13 +31,13 @@ public class Register extends JFrame {
         f.setVisible(true);*/
         l1 = new JLabel("Car Registration");
         l1.setForeground(new Color(84,84,85));
-       /* l1.setSize(60,25);*/
+        /* l1.setSize(60,25);*/
         l1.setFont(new Font("Oswald", Font.BOLD, 20));
         l2 = new JLabel("Car Registration no");
         l3 = new JLabel("Seats");
 
 
-       final JLabel l8=new JLabel();
+        final JLabel l8=new JLabel();
         l8.setHorizontalAlignment(JLabel.CENTER);
         l8.setSize(800,900);
         JButton btn5=new JButton("show");
@@ -50,7 +50,7 @@ public class Register extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String data="Seats Selected:"
-                +cb1.getItemAt(cb1.getSelectedIndex());
+                        +cb1.getItemAt(cb1.getSelectedIndex());
                 l8.setText(data);
             }
         });
@@ -58,19 +58,30 @@ public class Register extends JFrame {
 
 
 
-       /* l4 = new JLabel("Cars name");*/
+        /* l4 = new JLabel("Cars name");*/
 
         final JLabel label = new JLabel();
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setSize(400, 500);
         JButton btn3=new JButton("Save");
+        btn3.setFont(new Font("Raleway", Font.BOLD, 14));
+        btn3.setBackground(Color.BLACK);
+        btn3.setForeground(Color.WHITE);
+        btn3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(btn3,"Data Saved Successfully","",JOptionPane.PLAIN_MESSAGE);
+
+            }
+        });
+
 
         String cars[]={"Swift","WagonR","Beat","Alto","i10","i20"};
         final JComboBox cb = new JComboBox(cars);
 
         add(cb);
-       add(label);
-       add(btn3);
+        add(label);
+        add(btn3);
       /* setLayout(null);
        setSize(400,500);
        setVisible(true);*/
@@ -88,14 +99,27 @@ public class Register extends JFrame {
         b = new JButton("Next");
         b.setBounds(210,250 , 90, 20);
         b.setFont(new Font("Raleway", Font.BOLD, 14));
+        b.setBackground(Color.BLACK);
+        b.setForeground(Color.WHITE);
+        b.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(btn3,"Taking you to Rental Screen!!!","",JOptionPane.PLAIN_MESSAGE);
+                Rental rental=new Rental();
+                rental.setVisible(true);
+
+            }
+        });
+
+//        b.setFont(new Font("Raleway", Font.BOLD, 14));
       /*  b.setBackground(Color.BLACK);
         b.setForeground(Color.WHITE);*/
         /*b.addActionListener((ActionListener) this);*/
 
         tf1=new JTextField();
-       /* tf2=new JTextField();*/
+        /* tf2=new JTextField();*/
         tf1.setBounds(200,70,200,30);
-       /* tf2.setBounds(300,110,200,30);*/
+        /* tf2.setBounds(300,110,200,30);*/
        /* btn1.addActionListener(this);
         btn2.addActionListener(this);*/
         l1.setBounds(140, 30, 400, 25);
@@ -111,7 +135,7 @@ public class Register extends JFrame {
         add(tf1);
         add(cb1);
         add(l3);
-      /* add(tf2);*/
+        /* add(tf2);*/
         add(l4);
         add(btn1);
         add(btn2);
@@ -123,8 +147,8 @@ public class Register extends JFrame {
     }
 
     public static void main(String[] args) {
-        new Register();
-       /* JFrame f=new JFrame();*/
+        new Register().setVisible(true);
+        /* JFrame f=new JFrame();*/
     }
 
 }
