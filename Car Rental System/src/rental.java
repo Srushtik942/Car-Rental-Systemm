@@ -1,7 +1,6 @@
 import com.toedter.calendar.JDateChooser;
 
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,7 +22,7 @@ class Rental extends JFrame implements ActionListener{
 
         l1 = new JLabel("Car Rental Form");
         getContentPane().setBackground(new Color(230,230,250));
-       /* l1.setForeground(new Color(84,84,85));*/
+        /* l1.setForeground(new Color(84,84,85));*/
         l1.setFont(new Font("Oswald", Font.BOLD, 30));
 
         car_id = new JLabel(" Car ID");
@@ -75,7 +74,7 @@ class Rental extends JFrame implements ActionListener{
 
         dateChooser.setBounds(300, 240, 400, 30);
 
-       due.setBounds(100,290,200,30);
+        due.setBounds(100,290,200,30);
         add(due);
 
        /* t3.setBounds(300,340,400,30);
@@ -88,9 +87,17 @@ class Rental extends JFrame implements ActionListener{
         add(t5);*/
 
         ok.setBounds(350,400,80,30);
+        ok.setFont(new Font("Raleway", Font.BOLD, 14));
+        ok.setBackground(Color.BLACK);
+        ok.setForeground(Color.WHITE);
+
         add(ok);
 
         cancel.setBounds(470,400,80,30);
+        cancel.setFont(new Font("Raleway", Font.BOLD, 14));
+        cancel.setBackground(Color.BLACK);
+        cancel.setForeground(Color.WHITE);
+
         add(cancel);
 
         ok.addActionListener(this);
@@ -103,13 +110,31 @@ class Rental extends JFrame implements ActionListener{
 
         String car_id = t1.getText();
         String cust_id = t2.getText();
-        String dob = ((JTextField) dateChooser.getDateEditor().getUiComponent()).getText();
-        String days = t3.getText();
-        String fine = t4.getText();
+        //String date =
+      //  String dob = ((JTextField) dateChooser.getDateEditor().getUiComponent()).getText();
+        //String due = t3.getText();
+        //String fine = t4.getText();
+
+
+        try {
+
+            if (car_id.equals("") && cust_id.equals("") && date.equals("") && due.equals("") && t1.getText().equals("") && t2.getText().equals("") && t3.getText().equals("") && t4.getText().equals("") && t5.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Fill all the required fields");
+            }
+            else{
+                //new Return(first).setVisible(true);
+                setVisible(false);
+            }
+
+
+        } catch (HeadlessException e) {
+            e.printStackTrace();
+        }
 
 
 
     }
+
 
     public static void main(String[] args){
         new Rental().setVisible(true);
