@@ -1,7 +1,6 @@
 import com.toedter.calendar.JDateChooser;
 
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,11 +17,12 @@ class Return extends JFrame implements ActionListener{
     JButton ok, cancel;
     JDateChooser dateChooser;
 
-    Return(){
+    Return() {
         setTitle("Return Car");
         l2 = new JLabel(" Car Return Details");
         l2.setBounds(300, 80, 2000, 30);
-        l2.setFont(new Font("Raleway", Font.BOLD, 34));car_id = new JLabel("Car ID:");
+        l2.setFont(new Font("Raleway", Font.BOLD, 34));
+        car_id = new JLabel("Car ID:");
         add(l2);
         cust_id = new JLabel("Customer ID:");
         date = new JLabel("Date:");
@@ -45,51 +45,60 @@ class Return extends JFrame implements ActionListener{
 
         setLayout(null);
 
-        car_id.setBounds(100,140,100,30);
+        car_id.setBounds(100, 140, 100, 30);
         add(car_id);
 
-        t1.setBounds(300,140,400,30);
+        t1.setBounds(300, 140, 400, 30);
         add(t1);
 
-        cust_id.setBounds(100,190,200,30);
+        cust_id.setBounds(100, 190, 200, 30);
         add(cust_id);
 
-        t2.setBounds(300,190,400,30);
+        t2.setBounds(300, 190, 400, 30);
         add(t2);
 
-        date.setBounds(100,240,200,30);
+        date.setBounds(100, 240, 200, 30);
         add(date);
 
         dateChooser.setBounds(300, 240, 400, 30);
 
-        days.setBounds(100,290,200,30);
+        days.setBounds(100, 290, 200, 30);
         add(days);
 
-        t3.setBounds(300,340,400,30);
+        t3.setBounds(300, 340, 400, 30);
         add(t3);
 
-        fine.setBounds(100,340,200,30);
+        fine.setBounds(100, 340, 200, 30);
         add(fine);
 
-        t4.setBounds(300,290,400,30);
+        t4.setBounds(300, 290, 400, 30);
         add(t4);
 
-        ok.setBounds(320,420,80,30);
+        ok.setBounds(320, 420, 80, 30);
         ok.setFont(new Font("Raleway", Font.BOLD, 14));
         ok.setBackground(Color.BLACK);
         ok.setForeground(Color.WHITE);
         add(ok);
 
-        cancel.setBounds(480,420,80,30);
+        cancel.setBounds(480, 420, 80, 30);
         cancel.setFont(new Font("Raleway", Font.BOLD, 14));
         cancel.setBackground(Color.BLACK);
         cancel.setForeground(Color.WHITE);
         add(cancel);
 
         ok.addActionListener(this);
+
         cancel.addActionListener(this);
+                //new ActionListener() {
+//
+//           public void actionPerformed(ActionEvent e) {
+////                JOptionPane.showMessageDialog(cancel, "Operation cancelling!", "Thank You.", JOptionPane.PLAIN_MESSAGE);
+////                System.exit(0);
+//            }
+//        });
 
     }
+
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
@@ -99,9 +108,20 @@ class Return extends JFrame implements ActionListener{
         String dob = ((JTextField) dateChooser.getDateEditor().getUiComponent()).getText();
         String days = t3.getText();
         String fine = t4.getText();
+        try {
+
+            if (car_id.equals("") && cust_id.equals("") && dob.equals("") && days.equals("") && fine.equals("") && t1.getText().equals("") && t2.getText().equals("") && t3.getText().equals("") && t4.getText().equals("") && t5.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Fill all the required fields");
+            }
+            else{
+                //new Return(first).setVisible(true);
+                setVisible(false);
+            }
 
 
-
+        } catch (HeadlessException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args){
